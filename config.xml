@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+    xmlns:gap = "http://phonegap.com/ns/1.0"
+    id        = "com.phonegap.taipeihotel"
+    version   = "1.0.0">
+
+<name>eOffice行動辦公室</name>
+
+
+</widget>

@@ -1,0 +1,295 @@
+﻿<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery Mobile 網路應用程式</title>
+<link href="jquery-mobile/jquery.mobile.theme-1.0.min.css" rel="stylesheet" type="text/css"/>
+<link href="jquery-mobile/jquery.mobile.structure-1.0.min.css" rel="stylesheet" type="text/css"/>
+<link href="jquery-mobile/jqm-datebox-1.1.0.css" rel="stylesheet" type="text/css"/>
+<script src="jquery-mobile/jquery-1.7.1.js" type="text/javascript"></script>
+<script src="jquery-mobile/jquery.mobile-1.0.1.js" type="text/javascript"></script>
+<script src="jquery-mobile/jqm-datebox-1.1.0.mode.datebox.js" type="text/javascript"></script>
+<script src="jquery-mobile/jqm-datebox-1.1.0.core.js" type="text/javascript"></script>
+<script src="jquery-mobile/jqm-datebox-1.1.0.mode.datebox.min.js" type="text/javascript"></script>
+<script src="function.js" type="text/javascript"></script>
+</head> 
+<body> 
+
+<div data-role="page" id="index">
+	<div data-role="header" data-theme="b">
+    	<h1>eOffice行動辦公室</h1>
+	</div>
+	<div data-role="content">
+    <div style="text-align:center;">
+    	<img src="images/logo.png" width="320" height="198">
+    </div>
+    <div>
+    	<label for="usernumber" >帳號：</label>
+    	<input name="usernumber" type="text" id="usernumber" value="at9001" />
+    </div>
+    <div>
+    	<label for="userpassword">密碼：</label>
+    	<input name="userpassword" type="password" id="userpassword" value="1234" />
+    </div>
+    	<a id="login" data-role="button" data-theme="a" data-icon="check" data-iconpos="top">登入</a>
+    </div>
+    <div data-role="footer" data-position="fixed" data-theme="b">
+		<h1>登入畫面</h1>
+    </div>
+</div>
+
+<div data-role="page" id="home">
+	<div data-role="header" data-theme="b">   		
+    	<h1>eOffice行動辦公室</h1>
+        <a id="out" data-role="button" data-theme="a" data-icon="refresh" data-iconpos="right" class="ui-btn-right">登出</a>
+	</div>
+	<div data-role="content">	
+        <div>
+   			<ul id="homeread" data-role="listview" data-inset="true"></ul>
+    	</div>	
+	</div>   
+    <div data-role="footer" data-position="fixed" data-theme="b">
+		<h1>功能列表</h1>
+    </div>
+</div>
+
+<div data-role="page" id="leave">
+	<div data-role="header" data-theme="b">
+   	 	<a href="#home" data-role="button" data-theme="a" data-icon="home" data-iconpos="left" class="ui-btn-left">首頁</a>
+		<h1>請假單</h1>        
+        <a id="leaveout" data-role="button" data-theme="a" data-icon="refresh" data-iconpos="right" class="ui-btn-right">登出</a>
+	</div>
+	<div data-role="content">	
+		<div>
+   			<ul id="leaveread" data-role="listview" data-inset="true"></ul>
+    	</div>
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar">
+    		<ul>
+        		<li><a href="#leave_1" data-role="button" data-theme="b" data-icon="plus" data-iconpos="top">新增</a></li>
+    		</ul>
+   		</div>
+    </div>
+</div>
+
+<div data-role="page" id="leave_1">
+	<div data-role="header" data-theme="b">
+   		<a href="#home" data-role="button" data-theme="a" data-icon="home" data-iconpos="left" class="ui-btn-left">首頁</a>
+		<h1>請假單</h1>
+        <a href="#leave" data-role="button" data-theme="a" data-icon="delete" data-iconpos="right" class="ui-btn-right">取消</a>
+	</div>
+	<div data-role="content">	
+		<div data-role="fieldcontain">
+			<label for="menuitem" class="select">假別：</label>
+		  	<select name="menuitem" id="menuitem">
+		    <option value="請選擇">請選擇</option>
+		    <option value="病假">病假</option>
+		    <option value="事假">事假</option>
+            <option value="公假">公假</option>
+            <option value="產假">產假</option>
+	      	</select>
+	  	</div>
+        <div data-role="fieldcontain">
+            <label for="sdate">請假日期(起)：</label>
+            <input name="sdate" id="sdate" type="date" data-role="datebox"
+  			 data-options='{"mode": "datebox"}'>
+    	</div>
+        <div data-role="fieldcontain">
+        	<label for="edate">請假日期(迄)：</label>
+			<input name="edate" id="edate" type="date" data-role="datebox"
+  			 data-options='{"mode": "datebox"}'>
+    	</div>
+        <div data-role="fieldcontain">
+        	<label for="remark">請假理由：</label>
+            <textarea cols="40" rows="8" name="remark" id="remark" ></textarea>
+    	</div>
+	</div>
+    <div>
+    	<a id="leave_insert" data-role="button" data-theme="a" data-icon="check" data-iconpos="top">確認</a>
+    </div>
+    <div data-role="footer" data-position="fixed" data-theme="b">
+		<h1>新增畫面</h1>
+    </div>
+</div>
+
+<div data-role="page" id="leave_2">
+	<div data-role="header" data-theme="b">
+   		<a href="#home" data-role="button" data-theme="a" data-icon="home" data-iconpos="left" class="ui-btn-left">首頁</a>
+		<h1>請假單</h1>
+        <a href="#leave" data-role="button" data-theme="a" data-icon="delete" data-iconpos="right" class="ui-btn-right">取消</a>
+	</div>
+	<div data-role="content">	
+		<div id="leaveshow"></div>  
+	</div>
+    <div>
+    	<a id="leave_sent" data-role="button" data-theme="a" data-icon="gear" data-iconpos="top">送出簽核</a>
+    </div>
+    <div class="ui-grid-a">       
+       <div class="ui-block-a"><a href="#leave_3" data-role="button" data-theme="a" data-icon="edit" data-iconpos="top">編輯</a>
+       </div>
+       <div class="ui-block-b"><a id="leave_delete" data-role="button" data-theme="a" data-icon="minus" data-iconpos="top">刪除</a>
+       </div>
+    </div>
+    <div data-role="footer" data-position="fixed" data-theme="b">
+		<h1>檢視畫面</h1>
+    </div>
+</div>
+
+<div data-role="page" id="leave_2_disable">
+	<div data-role="header" data-theme="b">
+   		<a href="#home" data-role="button" data-theme="a" data-icon="home" data-iconpos="left" class="ui-btn-left">首頁</a>
+		<h1>請假單</h1>
+        <a href="#leave" data-role="button" data-theme="a" data-icon="delete" data-iconpos="right" class="ui-btn-right">取消</a>
+	</div>
+	<div data-role="content">	
+		<div id="leaveshow2"></div>  
+	</div>
+    <div data-role="footer" data-position="fixed" data-theme="b">
+		<h1>檢視畫面</h1>
+    </div>
+</div>
+
+<div data-role="page" id="leave_2_again">
+	<div data-role="header" data-theme="b">
+   		<a href="#home" data-role="button" data-theme="a" data-icon="home" data-iconpos="left" class="ui-btn-left">首頁</a>
+		<h1>請假單</h1>
+        <a href="#leave" data-role="button" data-theme="a" data-icon="delete" data-iconpos="right" class="ui-btn-right">取消</a>
+	</div>
+	<div data-role="content">	
+		<div id="leaveshow3"></div>  
+	</div>
+    <div>
+    	<a id="leave_again_delete" data-role="button" data-theme="a" data-icon="minus" data-iconpos="top">刪除</a>
+    </div>
+    <div data-role="footer" data-position="fixed" data-theme="b">
+		<h1>檢視畫面</h1>
+    </div>
+</div>
+
+<div data-role="page" id="leave_3">
+	<div data-role="header" data-theme="b">
+  		<a href="#home" data-role="button" data-theme="a" data-icon="home" data-iconpos="left" class="ui-btn-left">首頁</a>
+		<h1>請假單</h1>
+        <a href="#leave_2" data-role="button" data-theme="a" data-icon="delete" data-iconpos="right" class="ui-btn-right">取消</a>
+	</div>
+	<div data-role="content">	
+		<div data-role="fieldcontain">
+			<label for="editmenuitem" class="select">假別:</label>
+		  	<select name="editmenuitem" id="editmenuitem">
+		    <option value="請選擇">請選擇</option>
+		    <option value="病假">病假</option>
+		    <option value="事假">事假</option>
+            <option value="公假">公假</option>
+            <option value="產假">產假</option>
+	      	</select>
+	  	</div>
+        <div data-role="fieldcontain">
+        	<label for="editsdate">請假日期(起)：</label>
+			<input name="editsdate" id="editsdate" type="date" data-role="datebox"
+  			 data-options='{"mode": "datebox"}'>
+    	</div>
+        <div data-role="fieldcontain">
+        	<label for="editedate">請假日期(迄)：</label>
+			<input name="editedate" id="editedate" type="date" data-role="datebox"
+  			 data-options='{"mode": "datebox"}'>
+    	</div>
+        <div data-role="fieldcontain">
+        	<label for="editremark">請假理由:</label>
+            <textarea cols="40" rows="8" name="editremark" id="editremark" ></textarea>
+    	</div>
+	</div>
+    <div>
+    	<a id="leave_edit" data-role="button" data-theme="a" data-icon="check" data-iconpos="top">修改</a>
+    </div>
+    <div data-role="footer" data-position="fixed" data-theme="b">
+		<h1>修改畫面</h1>
+    </div>
+</div>
+
+<div data-role="page" id="receive">
+	<div data-role="header" data-theme="b">
+        <a href="#home" data-role="button" data-theme="a" data-icon="home" data-iconpos="left" class="ui-btn-left">首頁</a>
+		<h1>收件匣</h1>        
+        <a id="receiveout" data-role="button" data-theme="a" data-icon="refresh" data-iconpos="right" class="ui-btn-right">登出</a>
+	</div>
+	<div data-role="content">	
+		<div>
+   			<ul id="receiveread" data-role="listview" data-inset="true"></ul>
+    	</div>
+	</div>
+    <div data-role="footer" data-position="fixed" data-theme="b">
+		<h1>查詢畫面</h1>
+    </div>
+</div>
+
+<div data-role="page" id="receive_2">
+	<div data-role="header" data-theme="b">
+        <a href="#home" data-role="button" data-theme="a" data-icon="home" data-iconpos="left" class="ui-btn-left">首頁</a>
+		<h1>收件匣</h1>
+        <a href="#receive" data-role="button" data-theme="a" data-icon="delete" data-iconpos="right" class="ui-btn-right">取消</a>
+	</div>
+	<div data-role="content">	
+		<div id="receiveshow"></div>  
+	</div>
+    <div data-role="content">
+       	<label for="remark2">備註【退文時，請填寫退文原因】：</label>
+        <textarea cols="40" rows="8" name="remark2" id="remark2" ></textarea>
+   	</div>    
+    <div class="ui-grid-a">
+       <div class="ui-block-a">
+       		<a id="receive_sent" data-role="button" data-theme="a" data-icon="gear" data-iconpos="top">呈核</a>
+       </div>
+       <div class="ui-block-b">
+       		<a id="receive_back" data-role="button" data-theme="a" data-icon="alert" data-iconpos="top">退文</a>
+       </div>
+    </div>    
+    <div data-role="footer" data-position="fixed" data-theme="b">
+		<h1>檢視畫面</h1>
+    </div>
+</div>
+
+<div data-role="page" id="receive2">
+	<div data-role="header" data-theme="b">
+        <a href="#home" data-role="button" data-theme="a" data-icon="home" data-iconpos="left" class="ui-btn-left">首頁</a>
+		<h1>收件匣</h1>        
+        <a id="receiveout2" data-role="button" data-theme="a" data-icon="refresh" data-iconpos="right" class="ui-btn-right">登出</a>
+	</div>
+	<div data-role="content">	
+		<div>
+   			<ul id="receiveread2" data-role="listview" data-inset="true"></ul>
+    	</div>
+	</div>
+    <div data-role="footer" data-position="fixed" data-theme="b">
+		<h1>查詢畫面</h1>
+    </div>
+</div>
+
+<div data-role="page" id="receive2_2">
+	<div data-role="header" data-theme="b">
+		<a href="#home" data-role="button" data-theme="a" data-icon="home" data-iconpos="left" class="ui-btn-left">首頁</a>
+		<h1>收件匣</h1>
+        <a href="#receive" data-role="button" data-theme="a" data-icon="delete" data-iconpos="right" class="ui-btn-right">取消</a>
+	</div>
+	<div data-role="content">	
+		<div id="receiveshow2"></div>  
+	</div>
+    <div data-role="content">
+       	<label for="remark3">備註【退文時，請填寫退文原因】：</label>
+        <textarea cols="40" rows="8" name="remark3" id="remark3" ></textarea>
+   	</div>        
+	<div class="ui-grid-a">
+       <div class="ui-block-a">
+       		<a id="receive2_sent" data-role="button" data-theme="a" data-icon="gear" data-iconpos="top">決行</a>
+       </div>
+       <div class="ui-block-b">
+       		<a id="receive2_back" data-role="button" data-theme="a" data-icon="alert" data-iconpos="top">退文</a>
+       </div>
+    </div>    
+    <div data-role="footer" data-position="fixed" data-theme="b">
+		<h1>檢視畫面</h1>
+    </div>
+</div>
+
+</body>
+</html>
